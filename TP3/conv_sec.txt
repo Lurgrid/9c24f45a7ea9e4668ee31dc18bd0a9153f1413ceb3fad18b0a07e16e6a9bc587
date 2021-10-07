@@ -1,0 +1,2 @@
+Entrez une valeur horaire exprimée sous la forme h:m:s 
+La valeur horaire donné vaut 45296 seconde 

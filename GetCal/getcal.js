@@ -1,5 +1,6 @@
 const fs = require('fs');
 const got = require('got');
+const { createCanvas } = require('canvas');
 
 var NEW_LINE = /\r\n|\n|\r/;
 var COLON = ":";
@@ -110,5 +111,41 @@ function awaitWithTimeout(timeout, ...args) {
     return a[0] - b[0]
   })
   console.log(Allcal)
+
+  let text
+  try{
+    fs.unlinkSync("./edt.png")
+    text = "Delete done"
+  }catch(err){
+    text = "Delete failed"
+    //console.log(err)
+  }
+  console.log(text)
+
+  const width = Allcal.length*400+100
+  const height = 1200
+  
+  const canvas = createCanvas(width, height)
+  const context = canvas.getContext('2d')
+
+  context.fillStyle = 'white'
+  context.fillRect(0, 0, width, height)
+
+  context.font = '30pt Cascadia mono'
+  context.textAlign = 'center'
+  context.fillStyle = 'black'
+  context.fillText("Ceci est un test de creation d'image", 600, 170)
+
+  const buffer = canvas.toBuffer("image/png");
+  
+  try{
+    fs.writeFileSync("./edt.png", buffer)
+    text = "Processus done"
+  }catch(err){
+    text = "Processus failed"
+    console.log(err)
+  }
+  console.log(text)
+
 }
 }) ();

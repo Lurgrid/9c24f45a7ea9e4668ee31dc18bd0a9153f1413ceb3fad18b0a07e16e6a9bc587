@@ -110,7 +110,7 @@ function awaitWithTimeout(timeout, ...args) {
   Allcal.sort(function(a,b){
     return a[0] - b[0]
   })
-  console.log(Allcal)
+  console.log(Allcal[0])
 
   let text
   try{
@@ -122,8 +122,8 @@ function awaitWithTimeout(timeout, ...args) {
   }
   console.log(text)
 
-  const width = Allcal.length*400+100
-  const height = 1200
+  const width = Allcal.length*400+200
+  const height = 1300
   
   const canvas = createCanvas(width, height)
   const context = canvas.getContext('2d')

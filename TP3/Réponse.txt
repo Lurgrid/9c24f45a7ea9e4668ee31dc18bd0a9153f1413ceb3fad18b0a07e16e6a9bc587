@@ -1,8 +1,0 @@
-Question1:
-
-Ce programme calcule le resultat du polynome 3x²-4x+1 avec la valeur qu'on lui a donner
-
-Question3.3:
-
-Cette commande génére un fichier .txt de se qu'est ecrit dans la console en executant le programme time_to_sec et en entrant 12:34:56
-

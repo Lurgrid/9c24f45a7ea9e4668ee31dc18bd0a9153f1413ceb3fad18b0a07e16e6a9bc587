@@ -85,6 +85,8 @@ function awaitWithTimeout(timeout, ...args) {
     delete element.CREATED
     delete element.SEQUENCE
     delete element["LAST-MODIFIED"]
+    element.DTSTART[3] = parseInt(element.DTSTART[1])+20000
+    element.DTEND[3] = parseInt(element.DTEND[1])+20000
     element.DESCRIPTION = element.DESCRIPTION.split(/\\n/)
     element.DESCRIPTION = element.DESCRIPTION[element.DESCRIPTION.length-3]
   });
@@ -110,7 +112,6 @@ function awaitWithTimeout(timeout, ...args) {
   Allcal.sort(function(a,b){
     return a[0] - b[0]
   })
-  console.log(Allcal[0])
 
   let text
   try{
@@ -124,17 +125,75 @@ function awaitWithTimeout(timeout, ...args) {
 
   const width = Allcal.length*400+200
   const height = 1300
-  
   const canvas = createCanvas(width, height)
   const context = canvas.getContext('2d')
-
   context.fillStyle = 'white'
   context.fillRect(0, 0, width, height)
+  context.strokeStyle = "black";
+  context.lineWidth = 5
+  context.strokeRect(100, 100, (width-200), (height-200));
 
-  context.font = '30pt Cascadia mono'
-  context.textAlign = 'center'
-  context.fillStyle = 'black'
-  context.fillText("Ceci est un test de creation d'image", 600, 170)
+  for(let i = 1; i<=12; i++ ){
+    context.font = 'bold 11pt Arial'
+    context.textAlign = 'center'
+    context.fillStyle = 'black'
+    context.fillText(i+7+"h00", 50, 100*i)
+  }
+
+  function courses2(context, x, y, colorcours){
+    let x1 = y*400+100
+    let y1 = (x.DTSTART[3]/100)-700
+    let x2 = 400
+    let y2 = ((x.DTEND[3]/100)-700)-((x.DTSTART[3]/100)-700)
+
+    function getRandomColor() {
+      var letters = '56789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * letters.length)];
+      }
+      return color;
+    }
+
+    let color
+    if(colorcours.has(x.SUMMARY)){
+      color = colorcours.get(x.SUMMARY)
+    }else{
+      color = getRandomColor()
+      colorcours.set(x.SUMMARY, color)
+    }
+
+    context.fillStyle = color
+    context.fillRect(x1, y1, x2, y2)
+
+    context.strokeStyle = "black";
+    context.lineWidth = 5
+    context.strokeRect(x1, y1, x2, y2)
+
+    context.font = 'bold 11pt Arial'
+    context.textAlign = 'center'
+    context.fillStyle = 'black'
+    context.fillText(x.SUMMARY, (x1+(x2/2)), (y1+(y2/4)))
+    context.fillText(x.LOCATION, (x1+(x2/2)), (y1+(3*y2/5)))
+    context.fillText(x.DESCRIPTION, (x1+(x2/2)), (y1+(2*y2/5)))
+    context.font = 'bold 17pt Arial'
+    let heure = (parseInt(x.DTSTART[1].slice(0,2), 10)+2).toString()+":"+x.DTSTART[1].slice(2,4)+' / '+(parseInt(x.DTEND[1].slice(0,2), 10)+2).toString()+":"+x.DTEND[1].slice(2,4)
+    context.fillText(heure, (x1+(x2/2)), (y1+(7*y2/8)))
+  }
+  let colorcours = new Map()
+
+  Allcal.forEach(x => {
+    let y = Allcal.indexOf(x)
+    context.font = 'bold 20pt Arial'
+    context.textAlign = 'center'
+    context.fillStyle = 'black'
+    let v = new Date(Date.UTC(x[0].slice(0,4), x[0].slice(4,6)-1, x[0].slice(6,8))).toDateString()
+    context.fillText(v, (y*400+300), 50)
+    
+    x[1].forEach(course => {
+      courses2(context, course, y ,colorcours)
+    })
+  })
 
   const buffer = canvas.toBuffer("image/png");
   

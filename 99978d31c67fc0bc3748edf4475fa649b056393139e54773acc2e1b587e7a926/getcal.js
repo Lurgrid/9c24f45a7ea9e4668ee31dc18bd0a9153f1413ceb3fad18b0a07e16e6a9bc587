@@ -1,5 +1,4 @@
 const fs = require('fs');
-const got = require('got');
 const { createCanvas } = require('canvas');
 
 var NEW_LINE = /\r\n|\n|\r/;
@@ -69,7 +68,7 @@ function awaitWithTimeout(timeout, ...args) {
 (async () => {
   let x
   try{
-    x = await awaitWithTimeout(2000, got("https://adecampus.univ-rouen.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=36308&projectId=0&calType=ical&nbWeeks=1&displayConfigId=8"))
+    x = await awaitWithTimeout(2000, fetch("https://adecampus.univ-rouen.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=36308&projectId=0&calType=ical&nbWeeks=1&displayConfigId=8"))
   }catch (error){
     x = "error time"
   }

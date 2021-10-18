@@ -1,0 +1,15 @@
+{
+  "name": "b3abe5d8c69b38733ad57ea75e83bcae42bbbbac75e3a5445862ed2f8a2cd677",
+  "version": "1.0.0",
+  "description": "",
+  "main": "b3abe5d8c69b38733ad57ea75e83bcae42bbbbac75e3a5445862ed2f8a2cd677.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lurgrid",
+  "license": "ISC",
+  "dependencies": {
+    "js-sha256": "^0.9.0",
+    "scanf": "^1.1.2"
+  }
+}

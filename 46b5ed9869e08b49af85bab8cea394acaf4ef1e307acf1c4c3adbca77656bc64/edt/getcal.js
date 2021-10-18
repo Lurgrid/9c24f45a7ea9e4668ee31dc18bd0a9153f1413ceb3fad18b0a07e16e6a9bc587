@@ -66,6 +66,7 @@ function awaitWithTimeout(timeout, ...args) {
 (async () => {
   let response
   const myHearder = new Headers({
+    'Access-Control-Allow-Origin': 'https://lurgrid.github.io'
   })
 
   const myInit = { method: 'GET',headers: myHearder,mode: 'cors'};

@@ -134,7 +134,7 @@ function awaitWithTimeout(timeout, ...args) {
   context.strokeRect(100, 100, (width-200), (height-200));
 
   for(let i = 1; i<=12; i++ ){
-    context.font = 'bold 11pt Arial'
+    context.font = 'bold 19pt Arial'
     context.textAlign = 'center'
     context.fillStyle = 'black'
     context.fillText(i+7+"h00", 50, 100*i)

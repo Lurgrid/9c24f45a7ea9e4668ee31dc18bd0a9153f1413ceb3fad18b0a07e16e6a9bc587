@@ -66,10 +66,9 @@ function awaitWithTimeout(timeout, ...args) {
 (async () => {
   let response
   const myHearder = new Headers({
-    Accept: 'application/json',
   })
 
-  const myInit = { method: 'GET',headers: myHearder,mode: 'cors',origin: 'localhost'};
+  const myInit = { method: 'GET',headers: myHearder,mode: 'cors'};
   try{
     response = await awaitWithTimeout(2000, fetch("https://adecampus.univ-rouen.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=36308&projectId=0&calType=ical&nbWeeks=1&displayConfigId=8", myInit))
   }catch (error){

@@ -65,13 +65,8 @@ function awaitWithTimeout(timeout, ...args) {
 }
 (async () => {
   let response
-  const myHearder = new Headers({
-    'Access-Control-Allow-Origin': 'https://lurgrid.github.io'
-  })
-
-  const myInit = { method: 'GET',headers: myHearder,mode: 'cors'};
   try{
-    response = await awaitWithTimeout(2000, fetch("https://adecampus.univ-rouen.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=36308&projectId=0&calType=ical&nbWeeks=1&displayConfigId=8", myInit))
+    response = await awaitWithTimeout(2000, got("https://adecampus.univ-rouen.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=36308&projectId=0&calType=ical&nbWeeks=1&displayConfigId=8"))
   }catch (error){
     response = "error time"
   }

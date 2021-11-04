@@ -1,0 +1,20 @@
+{
+    "Host": " i.instagram.com",
+    "User-Agent": " Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
+    "Accept": " */*",
+    "Accept-Language": " fr,qu;q=0.5",
+    "Accept-Encoding": " gzip, deflate, br",
+    "X-IG-App-ID": " 936619743392459",
+    "X-ASBD-ID": " 198387",
+    "X-IG-WWW-Claim": " hmac.AR0oOTzhLfuRXWEAzByC3AkJRU993MxLC5i4Jex6iHVeN7Fe",
+    "Origin": " https://www.instagram.com",
+    "DNT": " 1",
+    "Alt-Used": " i.instagram.com",
+    "Connection": " keep-alive",
+    "Referer": " https://www.instagram.com/",
+    "Cookie": " mid=YXpWrAALAAHNGq9nHikkMprgco15; ig_did=C7ABAAFF-7271-4D97-9773-3B7CCC829EF8; shbid=\"19376\\0543048561673\\0541666943562:01f78a7c775154c27b5c486fba2ff83d255876a48b7fb484d005b975698a1ad100f8ee03\"; shbts=\"1635407562\\0543048561673\\0541666943562:01f7246725b5a7410ab1bd2ba526182751e03fceaae657015252f5495497bce181beded5\"; rur=\"CLN\\05441961195089\\0541666956369:01f7f901064bce08b0c72592ac4204bd6ec81e3704f27ed49a54966fa387f3a85b1f3200\"; csrftoken=WMSkfaoaJWADBxvRqeVOfDKpLzOuX9LF; ds_user_id=41961195089; sessionid=41961195089%3AtEKCjPkti6UGNd%3A8; csrftoken=H8kWyfLlyXwNzMzvqXZpKcTBteMDM0DE; ds_user_id=41961195089; rur=\"CLN\\05441961195089\\0541666956436:01f77129b33486e25f919b48ef2b8f648f554caed35a463ac5cefe3f0b1ad1fd4b2d29b3\"",
+    "Sec-Fetch-Dest": " empty",
+    "Sec-Fetch-Mode": " cors",
+    "Sec-Fetch-Site": " same-site",
+    "TE": " trailers"
+}

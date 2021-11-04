@@ -1,0 +1,15 @@
+{
+  "name": "5ede56738376a8c53a7c99bf275b077a5c10df780a20cf3d8282fd59a2a9fb56",
+  "version": "1.0.0",
+  "description": "",
+  "main": "two.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lurgrid",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "got": "^11.8.2"
+  }
+}

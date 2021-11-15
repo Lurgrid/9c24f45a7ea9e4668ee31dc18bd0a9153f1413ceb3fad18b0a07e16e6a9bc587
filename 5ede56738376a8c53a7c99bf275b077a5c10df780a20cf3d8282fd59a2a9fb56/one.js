@@ -1,6 +1,6 @@
 const fs = require('fs');
 const got = require('got');
-const headers = JSON.parse(fs.readFileSync('./headergot.json'));
+const headers = JSON.parse(fs.readFileSync('./header.json'));
 
 async function follow(){
 

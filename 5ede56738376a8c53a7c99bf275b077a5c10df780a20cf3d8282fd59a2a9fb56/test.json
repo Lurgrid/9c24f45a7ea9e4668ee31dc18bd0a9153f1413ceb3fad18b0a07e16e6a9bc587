@@ -1,0 +1,23 @@
+{
+    "name": "HTTPError",
+    "timings": {
+        "start": 1636970605309,
+        "socket": 1636970605311,
+        "lookup": 1636970605311,
+        "connect": 1636970605322,
+        "secureConnect": 1636970605393,
+        "upload": 1636970605394,
+        "response": 1636970605681,
+        "end": 1636970605682,
+        "phases": {
+            "wait": 2,
+            "dns": 0,
+            "tcp": 11,
+            "tls": 71,
+            "request": 1,
+            "firstByte": 287,
+            "download": 1,
+            "total": 373
+        }
+    }
+}

@@ -1,6 +1,7 @@
 var scanf = require('scanf');
 var sha256 = require('js-sha256');
 
+
 console.log("Entrez le mots a hash")
 
 let mot = scanf('%s');

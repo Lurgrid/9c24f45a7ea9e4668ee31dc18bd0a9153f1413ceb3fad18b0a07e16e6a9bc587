@@ -32,14 +32,22 @@ async function Getusers(){
     let para = "";
     for(var i = 0; i < 3; i++){
         console.log("Requete numero "+i)
-        await got("https://i.instagram.com/api/v1/friendships/1459119278/followers/?count=9999&max_id="+para, {headers}).then(x => {
-            console.log(x)
+        await got("https://i.instagram.com/api/v1/friendships/1459119278/followers/?count=9999&max_id="+para, {headers})
+        .catch(err => {
+            console.log("Requete numero "+i+" A une erreur")
+            console.log(err)
+        })
+        .then(x => {
+            try {
+                para = JSON.parse(x.body).next_max_id
+            }catch(err){
+                console.log("Requete numero "+i+" A une erreur")
+                return
+            }
+            console.log(x.statusCode)
             console.log(JSON.parse(x.body).next_max_id)
             para = JSON.parse(x.body).next_max_id
             ranger(x);
-        }).catch(err => {
-            console.log("Requete numero "+i+" A une erreur")
-            console.log(err)
         })
     }
     return true
